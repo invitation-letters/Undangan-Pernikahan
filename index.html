@@ -516,14 +516,16 @@
 
     .event-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      width: min(920px, 100%);
+      margin: 0 auto;
     }
 
     .event-card {
       position: relative;
-      padding: 28px;
-      min-height: 310px;
+      padding: clamp(24px, 3vw, 34px);
+      min-height: 270px;
       border-radius: var(--radius-xl);
       background: rgba(255, 250, 242, 0.76);
       box-shadow: var(--soft-shadow);
@@ -880,6 +882,83 @@
       transform: translateY(0);
     }
 
+  .wish-form {
+  width: min(720px, 100%);
+  margin: 0 auto 34px;
+  padding: 24px;
+  display: grid;
+  gap: 14px;
+  border-radius: var(--radius-xl);
+  background: rgba(255, 250, 242, 0.78);
+  border: 1px solid rgba(198, 155, 99, 0.22);
+  box-shadow: var(--soft-shadow);
+}
+
+.wish-form input,
+.wish-form textarea {
+  width: 100%;
+  border: 1px solid rgba(198, 155, 99, 0.28);
+  border-radius: 18px;
+  padding: 15px 16px;
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  color: var(--brown);
+  background: rgba(255, 255, 255, 0.86);
+  outline: none;
+}
+
+.wish-form textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.wish-form input:focus,
+.wish-form textarea:focus {
+  border-color: var(--gold-dark);
+  box-shadow: 0 0 0 4px rgba(198, 155, 99, 0.14);
+}
+
+.wish-status {
+  min-height: 22px;
+  color: var(--gold-dark);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.wish-list {
+  width: min(820px, 100%);
+  margin: 0 auto;
+  display: grid;
+  gap: 16px;
+}
+
+.wish-card {
+  padding: 20px;
+  border-radius: 24px;
+  background: rgba(255, 250, 242, 0.78);
+  border: 1px solid rgba(198, 155, 99, 0.22);
+  box-shadow: var(--soft-shadow);
+}
+
+.wish-card strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--brown);
+  font-size: 1.05rem;
+}
+
+.wish-card p {
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.wish-empty {
+  text-align: center;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
@@ -1019,6 +1098,8 @@
       .map-frame {
         min-height: 320px;
       }
+
+
     }
   </style>
 </head>
@@ -1026,7 +1107,7 @@
   <div class="preloader" id="preloader">
     <div class="preloader-card">
       <div class="preloader-label">The Wedding of</div>
-      <h1 id="coverNames">Anhar & Sinar</h1>
+      <h1 id="coverNames">Faizun & Rizka</h1>
 
       <div class="guest-box">
         <small>Kepada Yth.</small>
@@ -1055,8 +1136,8 @@
   <header class="hero" id="home">
     <div class="hero-content">
       <div class="eyebrow">Wedding Invitation</div>
-      <h1 class="hero-names" id="heroNames">Anhar & Sinar</h1>
-      <div class="hero-date" id="heroDate">Minggu, 24 Agustus 2026</div>
+      <h1 class="hero-names" id="heroNames">Faizun & Rizka</h1>
+      <div class="hero-date" id="heroDate">Kamis, 4 Juni 2026</div>
     </div>
     <div class="scroll-hint">
       <div class="mouse"></div>
@@ -1065,36 +1146,6 @@
   </header>
 
   <main>
-    <section class="section reveal" id="couple">
-      <div class="container">
-        <div class="section-title">
-          <div class="section-kicker">Bride & Groom</div>
-          <h2>Two Hearts, One Promise</h2>
-          <p>Dengan memohon rahmat dan ridho Tuhan Yang Maha Esa, kami bermaksud menyelenggarakan acara pernikahan kami.</p>
-        </div>
-
-        <div class="couple-grid">
-          <article class="couple-card">
-            <img id="bridePhoto" src="assets/bride.jpg" alt="Foto mempelai wanita" />
-            <div class="couple-info">
-              <span>Mempelai Wanita</span>
-              <h3 id="brideName">Sinar Putri</h3>
-              <p id="brideParents">Putri dari Bapak Ahmad & Ibu Sari</p>
-            </div>
-          </article>
-
-          <article class="couple-card">
-            <img id="groomPhoto" src="assets/groom.jpg" alt="Foto mempelai pria" />
-            <div class="couple-info">
-              <span>Mempelai Pria</span>
-              <h3 id="groomName">Anhar Pratama</h3>
-              <p id="groomParents">Putra dari Bapak Budi & Ibu Lestari</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <section class="section countdown-section reveal" id="countdown">
       <div class="container">
         <div class="section-title">
@@ -1125,9 +1176,9 @@
             <div class="event-icon">💍</div>
             <h3>Akad Nikah</h3>
             <ul>
-              <li><b>Hari/Tanggal:</b> <span id="akadDate">Minggu, 24 Agustus 2026</span></li>
-              <li><b>Waktu:</b> <span id="akadTime">09.00 - 10.00 WIB</span></li>
-              <li><b>Tempat:</b> <span id="akadPlace">Gedung Serbaguna Harmoni</span></li>
+              <li><b>Hari/Tanggal:</b> <span id="akadDate">Kamis, 4 Juni 2026</span></li>
+              <li><b>Waktu:</b> <span id="akadTime">08.00 WIB</span></li>
+              <li><b>Tempat:</b> <span id="akadPlace">Kediaman Mempelai Wanita</span></li>
             </ul>
           </article>
 
@@ -1135,40 +1186,11 @@
             <div class="event-icon">🥂</div>
             <h3>Resepsi</h3>
             <ul>
-              <li><b>Hari/Tanggal:</b> <span id="receptionDate">Minggu, 24 Agustus 2026</span></li>
-              <li><b>Waktu:</b> <span id="receptionTime">11.00 - 14.00 WIB</span></li>
+              <li><b>Hari/Tanggal:</b> <span id="receptionDate">Kamis, 4 Juni 2026</span></li>
+              <li><b>Waktu:</b> <span id="receptionTime">10.00 WIB - SELESAI</span></li>
               <li><b>Tempat:</b> <span id="receptionPlace">Gedung Serbaguna Harmoni</span></li>
             </ul>
           </article>
-
-          <article class="event-card">
-            <div class="event-icon">✨</div>
-            <h3>Informasi</h3>
-            <ul>
-              <li><b>Dress Code:</b> <span id="dressCode">Earth Tone / Pastel</span></li>
-              <li><b>Catatan:</b> <span id="eventNote">Mohon hadir tepat waktu dan tetap menjaga kenyamanan bersama.</span></li>
-              <li><b>Ucapan:</b> Doa terbaik Anda adalah hadiah yang paling berarti bagi kami.</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section reveal" id="gallery">
-      <div class="container">
-        <div class="section-title">
-          <div class="section-kicker">Our Gallery</div>
-          <h2>Beautiful Moments</h2>
-          <p>Beberapa potret kecil dari perjalanan kami, tentang tawa, cerita, dan janji yang tumbuh perlahan.</p>
-        </div>
-
-        <div class="gallery-wrap">
-          <button class="gallery-btn prev" id="prevSlide" aria-label="Foto sebelumnya">‹</button>
-          <div class="gallery-frame">
-            <div class="gallery-track" id="galleryTrack"></div>
-          </div>
-          <button class="gallery-btn next" id="nextSlide" aria-label="Foto berikutnya">›</button>
-          <div class="dots" id="galleryDots" aria-label="Indikator halaman galeri"></div>
         </div>
       </div>
     </section>
@@ -1214,12 +1236,32 @@
       </div>
     </section>
 
+    <section class="section reveal" id="wishes">
+  <div class="container">
+    <div class="section-title">
+      <h2>Ucapan & Doa</h2>
+      <p>Berikan ucapan dan doa terbaik untuk kedua mempelai.</p>
+    </div>
+
+    <form class="wish-form" id="wishForm">
+      <input type="text" id="wishName" placeholder="Nama Kamu" required />
+      <textarea id="wishMessage" placeholder="Tulis ucapan atau doa..." required></textarea>
+      <button type="submit" class="maps-btn" id="sendWish">Kirim Ucapan</button>
+      <p class="wish-status" id="wishStatus"></p>
+    </form>
+
+    <div class="wish-list" id="wishList">
+      <p class="wish-empty">Memuat ucapan...</p>
+    </div>
+  </div>
+</section>
+
     <section class="section closing reveal">
       <div class="container">
         <div class="closing-card">
           <h2>Thank You</h2>
           <p>Merupakan suatu kebahagiaan dan kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.</p>
-          <div class="footer-names" id="footerNames">Anhar & Sinar</div>
+          <div class="footer-names" id="footerNames">Faizun & Rizka</div>
         </div>
       </div>
     </section>
@@ -1227,17 +1269,18 @@
 
   <script>
     const invitation = {
-      coupleShortName: "Anhar & Sinar",
-      weddingDateText: "Minggu, 24 Agustus 2026",
-      weddingTargetDate: "2026-08-24T09:00:00+07:00",
+      coupleShortName: "Faizun & Rizka",
+      weddingDateText: "Kamis, 4 Juni 2026",
+      weddingTargetDate: "2026-06-04T09:00:00+07:00",
 
       bride: {
-        name: "Sinar Putri",
-        parents: "Putri dari Bapak Ahmad & Ibu Sari",
+        name: "Rizka",
+        parents: "Putri dari Bapak Andi & Ibu Maya",
         photo: "assets/bride.jpg"
       },
       groom: {
-        name: "Anhar Pratama",
+        name: "Faizun",
+
         parents: "Putra dari Bapak Budi & Ibu Lestari",
         photo: "assets/groom.jpg"
       },
@@ -1245,60 +1288,33 @@
       music: "assets/bgm.mp3",
 
       event: {
-        akadDate: "Minggu, 24 Agustus 2026",
-        akadTime: "09.00 - 10.00 WIB",
-        akadPlace: "Gedung Serbaguna Harmoni",
-        receptionDate: "Minggu, 24 Agustus 2026",
-        receptionTime: "11.00 - 14.00 WIB",
-        receptionPlace: "Gedung Serbaguna Harmoni",
+        akadDate: "Kamis, 4 Juni 2026",
+        akadTime: "08.00 WIB",
+        akadPlace: "Kediaman Mempelai Wanita",
+        receptionDate: "Kamis, 4 Juni 2026",
+        receptionTime: "10.00 WIB - SELESAI",
+        receptionPlace: "Kediaman Mempelai Wanita",
         dressCode: "Earth Tone / Pastel",
         note: "Mohon hadir tepat waktu dan tetap menjaga kenyamanan bersama."
       },
 
-      gallery: [
-        {
-          image: "assets/gallery-1.jpg",
-          title: "A Little Story",
-          quote: "Cinta bukan hanya tentang menemukan seseorang, tetapi tentang memilih untuk tumbuh bersama setiap hari."
-        },
-        {
-          image: "assets/gallery-2.jpg",
-          title: "Warm Memories",
-          quote: "Di antara banyak perjalanan, hati kami bertemu pada satu tujuan yang sama."
-        },
-        {
-          image: "assets/gallery-3.jpg",
-          title: "Forever Begins",
-          quote: "Hari ini menjadi awal dari janji yang ingin kami jaga sepanjang waktu."
-        },
-        {
-          image: "assets/gallery-4.jpg",
-          title: "Together",
-          quote: "Bersama, setiap langkah sederhana terasa lebih berarti dan penuh harapan."
-        },
-        {
-          image: "assets/gallery-5.jpg",
-          title: "Our Promise",
-          quote: "Semoga kisah ini selalu dipenuhi doa, kasih, dan kebahagiaan yang tumbuh tanpa henti."
-        }
-      ],
-
       gift: {
         qrisImage: "assets/qris.png",
-        bankName: "BCA - 1234567890",
-        accountName: "a.n. Sinar Putri",
-        accountNumber: "1234567890"
+        bankName: "BCA -  0801400816",
+        accountName: "Rizka Septiani Putri Awaliyah",
+        accountNumber: "0801400816"
       },
 
       location: {
-        text: "Gedung Serbaguna Harmoni, Jl. Melati No. 24, Purwokerto.",
-        mapsLink: "https://maps.google.com/",
-        mapsEmbed: "https://www.google.com/maps?q=Purwokerto&output=embed",
+        text: "Dusun Pakis, Desa Sidomukti, RT 03, RW 01, Kec. Weleri, Kab. Kendal.",
+        mapsLink: "https://maps.app.goo.gl/jinZ15D4djfGY4tz6",
+        mapsEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.1630310742316!2d110.0717781728322!3d-6.990069916394204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e704275ee1dd6a3%3A0x614076f537e87379!2sMasjid%20Al-Ikhlas%20Pakis!5e0!3m2!1sen!2sid!4v1779042610652!5m2!1sen!2sid",
         mapsQrImage: "assets/maps-qr.png"
       }
     };
 
     const $ = (selector) => document.querySelector(selector);
+    const WISHES_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwZNqHgp6MP1h8VPZtJ7pvBUjbK4nnJlMSg3S4Abx5DhahoME11cfXd5dBGhy_ItnYr/exec";
 
     const bgm = $("#bgm");
     const musicToggle = $("#musicToggle");
@@ -1308,8 +1324,6 @@
     const openInvitation = $("#openInvitation");
 
     let isPlaying = false;
-    let currentSlide = 0;
-    let sliderInterval = null;
 
     function setText(selector, value) {
       const element = $(selector);
@@ -1413,53 +1427,6 @@
       setText("#minutes", String(minutes).padStart(2, "0"));
       setText("#seconds", String(seconds).padStart(2, "0"));
     }
-
-    function renderGallery() {
-      const track = $("#galleryTrack");
-      const dots = $("#galleryDots");
-
-      track.innerHTML = invitation.gallery.map((item, index) => `
-        <article class="slide" aria-label="Galeri foto ${index + 1}">
-          <img src="${item.image}" alt="Foto galeri pernikahan ${index + 1}" />
-          <div class="slide-caption">
-            <h3>${item.title}</h3>
-            <p>${item.quote}</p>
-          </div>
-        </article>
-      `).join("");
-
-      dots.innerHTML = invitation.gallery.map((_, index) => `
-        <button class="dot ${index === 0 ? "active" : ""}" aria-label="Lihat foto ${index + 1}" data-slide="${index}"></button>
-      `).join("");
-
-      dots.querySelectorAll(".dot").forEach(dot => {
-        dot.addEventListener("click", () => goToSlide(Number(dot.dataset.slide)));
-      });
-    }
-
-    function goToSlide(index) {
-      const total = invitation.gallery.length;
-      currentSlide = (index + total) % total;
-      $("#galleryTrack").style.transform = `translateX(-${currentSlide * 100}%)`;
-
-      document.querySelectorAll(".dot").forEach((dot, dotIndex) => {
-        dot.classList.toggle("active", dotIndex === currentSlide);
-      });
-    }
-
-    function nextSlide() {
-      goToSlide(currentSlide + 1);
-    }
-
-    function prevSlide() {
-      goToSlide(currentSlide - 1);
-    }
-
-    function startAutoSlider() {
-      clearInterval(sliderInterval);
-      sliderInterval = setInterval(nextSlide, 6500);
-    }
-
     function copyAccountNumber() {
       navigator.clipboard.writeText(invitation.gift.accountNumber).then(() => {
         const button = $("#copyAccount");
@@ -1483,39 +1450,121 @@
       document.querySelectorAll(".reveal").forEach(section => observer.observe(section));
     }
 
-    function initSwipeGallery() {
-      let startX = 0;
-      let endX = 0;
-      const frame = document.querySelector(".gallery-frame");
+    function renderWishes(wishes) {
+  const wishList = $("#wishList");
 
-      frame.addEventListener("touchstart", (event) => {
-        startX = event.changedTouches[0].screenX;
-      }, { passive: true });
+  if (!wishList) return;
 
-      frame.addEventListener("touchend", (event) => {
-        endX = event.changedTouches[0].screenX;
-        const diff = startX - endX;
-        if (Math.abs(diff) > 45) {
-          diff > 0 ? nextSlide() : prevSlide();
-          startAutoSlider();
-        }
-      }, { passive: true });
+  wishList.innerHTML = "";
+
+  if (!wishes || wishes.length === 0) {
+    wishList.innerHTML = `<p class="wish-empty">Belum ada ucapan. Jadilah yang pertama memberikan doa terbaik.</p>`;
+    return;
+  }
+
+  wishes.forEach(wish => {
+    const card = document.createElement("div");
+    card.className = "wish-card";
+
+    const name = document.createElement("strong");
+    name.textContent = wish.name || "Tamu Undangan";
+
+    const message = document.createElement("p");
+    message.textContent = wish.message || "";
+
+    card.appendChild(name);
+    card.appendChild(message);
+
+    wishList.appendChild(card);
+  });
+}
+
+function loadWishes() {
+  if (!WISHES_SCRIPT_URL || WISHES_SCRIPT_URL.includes("ISI_LINK")) {
+    renderWishes([]);
+    return;
+  }
+
+  const callbackName = "loadWeddingWishes_" + Date.now();
+  const script = document.createElement("script");
+
+  window[callbackName] = function(response) {
+    renderWishes(response.data || []);
+
+    delete window[callbackName];
+
+    if (script.parentNode) {
+      script.parentNode.removeChild(script);
     }
+  };
+
+  script.src = `${WISHES_SCRIPT_URL}?callback=${callbackName}&t=${Date.now()}`;
+  document.body.appendChild(script);
+}
+
+function initWishForm() {
+  const wishForm = $("#wishForm");
+  const wishStatus = $("#wishStatus");
+  const sendWish = $("#sendWish");
+
+  if (!wishForm) return;
+
+  wishForm.addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const name = $("#wishName").value.trim();
+    const message = $("#wishMessage").value.trim();
+
+    if (!name || !message) {
+      wishStatus.textContent = "Nama dan ucapan wajib diisi.";
+      return;
+    }
+
+    sendWish.disabled = true;
+    sendWish.textContent = "Mengirim...";
+    wishStatus.textContent = "";
+
+    try {
+      await fetch(WISHES_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
+        body: JSON.stringify({
+          name: name,
+          message: message
+        })
+      });
+
+      wishForm.reset();
+      wishStatus.textContent = "Ucapan berhasil dikirim. Terima kasih!";
+
+      setTimeout(() => {
+        loadWishes();
+      }, 1200);
+
+    } catch (error) {
+      wishStatus.textContent = "Ucapan gagal dikirim. Coba lagi nanti.";
+
+    } finally {
+      sendWish.disabled = false;
+      sendWish.textContent = "Kirim Ucapan";
+    }
+  });
+}
 
     openInvitation.addEventListener("click", openPage);
     musicToggle.addEventListener("click", toggleMusic);
-    $("#nextSlide").addEventListener("click", () => { nextSlide(); startAutoSlider(); });
-    $("#prevSlide").addEventListener("click", () => { prevSlide(); startAutoSlider(); });
     $("#copyAccount").addEventListener("click", copyAccountNumber);
 
     getGuestNameFromUrl();
     initContent();
-    renderGallery();
     initRevealAnimation();
-    initSwipeGallery();
+    initWishForm();
+    loadWishes();
     updateCountdown();
     setInterval(updateCountdown, 1000);
-    startAutoSlider();
   </script>
 </body>
 </html>
